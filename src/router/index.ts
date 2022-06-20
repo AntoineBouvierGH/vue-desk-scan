@@ -1,24 +1,43 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import VueRouter, { RouteConfig, Route } from 'vue-router'
+import Bookings from '../views/BookingsView.vue'
+import Book from '../views/BookView.vue'
+import Login from '../views/LoginView.vue'
 
 Vue.use(VueRouter)
 
+function guard(to: Route, from: Route, next: Function) {
+    if (to.path == '/login') {// || Bridge.user.login) {
+        next();
+    } else {
+        //next('/login');
+        next();
+    }
+}
+
 const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    {
+      path: '/',
+      redirect: '/book'
+    },
+    {
+      path: '/book',
+      name: 'Book',
+      beforeEnter: guard,
+      component: Book
+    },
+    {
+      path: '/bookings',
+      name: 'Bookings',
+      beforeEnter: guard,
+      component: Bookings
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    }
+  ]
 
 const router = new VueRouter({
   mode: 'history',
