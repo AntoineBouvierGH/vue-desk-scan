@@ -1,0 +1,11 @@
+{
+    "INPUT": {
+        "DATA_APP": "dataapp",
+        "QUERY": {
+            "FILE": "sql/desk/get.sql"
+        }
+    },
+    "OUTPUT": {
+        "FORMAT": "JSON"
+    }
+}

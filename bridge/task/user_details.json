@@ -1,0 +1,17 @@
+{
+    "INPUT": {
+        "DATA_APP": {
+            "TYPE": "USER_DATA"
+        },
+        "QUERY": {
+            "DATA": {
+                "login": "<??_user_login??>",
+                "is_admin": "<??_user_is_admin??>"
+            }
+        },
+        "FORMAT": "JSON"
+    },
+    "OUTPUT": {
+        "FORMAT": "JSON"
+    }
+}
