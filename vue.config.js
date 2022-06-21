@@ -1,16 +1,23 @@
 module.exports = {
-    chainWebpack: config => {
-      config.module.rules.delete("svg");
-    },
-    configureWebpack: {
-      module: {
-        rules: [
-          {
-            test: /\.svg$/,
-            loader: 'vue-svg-loader',
-          }
-        ],
-      }
-    },
+  chainWebpack: config => {
+    config.module.rules.delete("svg");
+  },
+
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.svg$/,
+          loader: 'vue-svg-loader',
+        }
+      ],
+    }
+  },
+
+  publicPath: '',
+
+  pluginOptions: {
+    cordovaPath: 'src-cordova'
+  }
 };
   
